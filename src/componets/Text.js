@@ -28,20 +28,36 @@ export default function TextForm(props) {
     setText("");
   }
 
+  const handlecopy = () => {
+    let txt = document.getElementById("mybox")
+    txt.select();
+    navigator.clipboard.writeText(txt);
+  };
+
+  // const handlePaste = () => {
+  //   let t = document.getElementById("mybox")
+  //   navigator.clipboard.readText().then((t) => {
+  //   });
+
+  // }
   return (
     <div>
       <h1 className="my-3">{props.heading}</h1>
       <div className="mb-3">
         <textarea className="form-control" value={text} onChange={handleOnChange} id="mybox" rows="8"></textarea>
       </div>
+
       <button className="btn btn-primary" onClick={myhandle}>UpperCase</button>
       <button className="btn btn-danger m-1" onClick={down}>LowerCase</button>
-      <button className="btn btn-dark m-1" onClick={end}>Clear</button>
+      <button className="btn btn-success m-1" onClick={end}>Clear Text</button>
+      <button className="btn btn-dark m-1" style={{ float: "right" }} onClick={handlecopy}>Copy</button>
+      {/* <button className="btn btn-dark m-1" style={{ float: "right" }} onClick={handlePaste}>Paste</button> */}
+
 
       <div className="container my-3">
         <h2>{text.split(" ").length} words and {text.length} characters.</h2>
-
       </div>
     </div>
   );
 }
+
