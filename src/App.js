@@ -7,7 +7,7 @@ import React, { useState } from "react";
 
 function App() {
 
-  const [mode, setMode] = useState('primary')
+  const [mode, setMode] = useState('dark')
 
   return (
     <>
