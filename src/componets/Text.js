@@ -3,14 +3,14 @@ import React, { useState } from "react";
 export default function TextForm(props) {
   const [text, setText] = useState("");
 
-  const myhandle = () => {
+  const UpperCase = () => {
     console.log("Clicked")
     let newtext = text.toUpperCase();
     setText(newtext)
 
   }
 
-  const down = () => {
+  const LowerCase = () => {
     console.log("Clicked")
     let newtext1 = text.toLowerCase();
     setText(newtext1)
@@ -23,16 +23,16 @@ export default function TextForm(props) {
     setText(event.target.value);
   }
 
-  const end = () => {
+  const ClearText = () => {
     console.log("Clicked");
     setText("");
   }
 
-  const handlecopy = () => {
-    let txt = document.getElementById("mybox")
-    txt.select();
-    navigator.clipboard.writeText(txt);
+  const CopyText = () => {
+    let text = document.getElementById("mybox").value
+    navigator.clipboard.writeText(text);
   };
+  
 
   // const handlePaste = () => {
   //   let t = document.getElementById("mybox")
@@ -47,10 +47,10 @@ export default function TextForm(props) {
         <textarea className="form-control" value={text} onChange={handleOnChange} id="mybox" rows="8"></textarea>
       </div>
 
-      <button className="btn btn-primary" onClick={myhandle}>UpperCase</button>
-      <button className="btn btn-danger m-1" onClick={down}>LowerCase</button>
-      <button className="btn btn-success m-1" onClick={end}>Clear Text</button>
-      <button className="btn btn-dark m-1" style={{ float: "right" }} onClick={handlecopy}>Copy</button>
+      <button className="btn btn-primary" onClick={UpperCase}>UpperCase</button>
+      <button className="btn btn-danger m-1" onClick={LowerCase}>LowerCase</button>
+      <button className="btn btn-success m-1" onClick={ClearText}>Clear Text</button>
+      <button className="btn btn-dark m-1" onClick={CopyText}>Copy</button>
       {/* <button className="btn btn-dark m-1" style={{ float: "right" }} onClick={handlePaste}>Paste</button> */}
 
 
