@@ -52,11 +52,17 @@ export default function TextForm(props) {
       <button className="btn btn-success m-1" onClick={ClearText}>Clear Text</button>
       <button className="btn btn-dark m-1" onClick={CopyText}>Copy</button>
       {/* <button className="btn btn-dark m-1" style={{ float: "right" }} onClick={handlePaste}>Paste</button> */}
+{/* 
+      <div className="container my-3">
+        <h2>{text.split(" ").length} words and {text.length} characters.</h2>
+      </div> */}
+
 
 
       <div className="container my-3">
-        <h2>{text.split(" ").length} words and {text.length} characters.</h2>
+          <h2>{text.trim().length > 0 ? `${text.trim().split(/\s+/).length} words and ${text.length} characters` : "0 words and 0 characters"}</h2>
       </div>
+
     </div>
   );
 }
